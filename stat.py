@@ -7,6 +7,7 @@ import os
 import pathlib
 import re
 import requests
+import traceback
 
 from bs4 import BeautifulSoup
 
@@ -43,8 +44,11 @@ def get_salmon_statistics():
                     month = int(match.group(2)) + 1
                     day = int(match.group(3))
                     count = int(match.group(4))
-                    data['dates'].append(datetime.date(int(year), month, day))
-                    data['counts'].append(count)
+                    try:
+                        data['dates'].append(datetime.date(int(year), month, day))
+                        data['counts'].append(count)
+                    except ValueError:
+                        traceback.print_exc()
         return data
 
     statistics = {}

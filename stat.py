@@ -54,7 +54,7 @@ def get_salmon_statistics():
     statistics = {}
     for river in RIVERS:
         soup = BeautifulSoup(requests.get(URL + river).content, "html.parser")
-        script = soup.find("script", string=re.compile("Highcharts.Chart")).text
+        script = soup.find("script", string=re.compile("Highcharts.Chart")).string
         script_single_line = script.replace('\n', '').replace('\r', '').replace('\t', '').replace(' ', '')
         raw = re.search('series:\[(.*)\]', script_single_line).group(1)
         raw_groups = raw.replace('{', '').split('},')

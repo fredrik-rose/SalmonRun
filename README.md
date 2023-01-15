@@ -35,3 +35,11 @@ optional arguments:
 
 Note that you can use a an asterisk, SwedishLaplandFishing/kalixalven* will visualize the Kalix river statistics for
 all years.
+
+## Example
+
+```
+$ python vis.py SwedishLaplandFishing/kalixalven20*
+```
+
+<img src="img/vis.png" width="1000"/>
